@@ -188,7 +188,6 @@ a { color: inherit; text-decoration: none; }
 /* ===== Responsive ===== */
 @media (max-width: 880px) {
   .hero-inner, .product-grid { grid-template-columns: 1fr; gap: 40px; }
-  .hero-visual { order: -1; }
   .cards { grid-template-columns: 1fr; }
   .steps { grid-template-columns: 1fr 1fr; }
   .nav-links { display: none; }
