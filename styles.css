@@ -105,7 +105,10 @@ a { color: inherit; }
   line-height: 1.1;
   letter-spacing: -0.01em;
   margin-bottom: var(--space-m);
+  text-wrap: balance;
 }
+
+.nowrap { white-space: nowrap; }
 
 .accent { color: var(--red); font-style: normal; } /* the ONE red on the page */
 
@@ -251,11 +254,13 @@ a { color: inherit; }
 
 /* ===== 01 — Deliverable ===== */
 .deliverable-grid {
-  display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 7fr);
+  display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
   gap: clamp(2.5rem, 5vw, 5rem);
   align-items: start;
 }
 .deliverable-intro p { margin-bottom: 1em; max-width: 44ch; color: var(--ink-80); }
+/* the 4fr column is narrow: step back so "You don't get résumés." holds one line */
+.deliverable-intro .h2 { font-size: calc(var(--step-3) * 0.86); }
 
 /* The specimen document — a sheet on a sheet */
 .specimen-wrap { position: relative; }
@@ -350,11 +355,12 @@ a { color: inherit; }
 }
 
 .specimen-caption {
-  display: flex; justify-content: space-between; align-items: baseline; gap: 16px;
+  display: flex; justify-content: space-between; align-items: baseline; gap: 32px;
   margin-top: 20px; padding-top: 12px;
   border-top: 1px solid var(--hairline);
   font-size: 13px; color: var(--ink-65);
 }
+.caption-text { max-width: 46ch; }
 .replay {
   flex: none;
   font: inherit; font-size: 13px; color: var(--ink-80);
@@ -430,6 +436,7 @@ a { color: inherit; }
   gap: var(--space-m); flex-wrap: wrap;
 }
 .band-title { font-size: var(--step-4); font-weight: 600; letter-spacing: -0.01em; }
+.band-sub { margin-top: 10px; font-size: var(--step--1); color: var(--ink-80); max-width: 44ch; }
 .band-cta { display: grid; gap: 10px; justify-items: start; }
 .band .microcopy { color: var(--ink-80); max-width: 44ch; }
 .band .btn-pill:hover { box-shadow: 0 4px 14px rgba(31, 42, 68, 0.3); }
@@ -440,8 +447,16 @@ a { color: inherit; }
   gap: clamp(2.5rem, 5vw, 5rem);
   align-items: start;
 }
-.engine-chips { display: flex; gap: 10px; margin-bottom: var(--space-s); }
-.engine-chips .chip { font-size: 11px; padding: 5px 14px; }
+.engine-status {
+  display: flex; flex-wrap: wrap; gap: 6px 12px;
+  margin-bottom: var(--space-s);
+  padding-bottom: 10px;
+  border-bottom: 1px solid var(--hairline);
+  font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--ink-65);
+}
+.engine-status strong { font-weight: 600; color: var(--ink); }
+.status-sep { color: var(--hairline-strong); }
 .lede { color: var(--ink-80); max-width: 58ch; }
 .dropcap::first-letter {
   font-family: var(--font-display); font-weight: 600;
@@ -643,6 +658,7 @@ a { color: inherit; }
   .step { padding-left: 18px; border-left: 1px solid var(--hairline); padding-top: 0; }
   .step::before { width: 1px; height: 0; }
   .term-row { grid-template-columns: 1fr; gap: 6px; padding: 18px 0; }
+  .h2 br { display: none; } /* let text-wrap: balance control breaks on phones */
   .band-inner { flex-direction: column; align-items: flex-start; }
   .band .btn, .colophon-cta .btn { width: 100%; }
   .colophon-inner { flex-direction: column; align-items: flex-start; }
