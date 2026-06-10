@@ -1,77 +1,90 @@
-// Animate match bars + score count-up when they scroll into view.
+/* The Vettic Dossier — progressive enhancement only.
+   The page is complete without this file: bars carry their final widths,
+   the stamp is visible, all content is static. JS only subtracts state
+   and restores it on scroll. Everything gates on prefers-reduced-motion. */
 (function () {
   "use strict";
 
-  function animateScore(el) {
-    var target = parseInt(el.getAttribute("data-score"), 10) || 0;
-    var num = el.querySelector(".score-num");
-    if (!num) return;
-    var start = null;
-    var duration = 1100;
-    function step(ts) {
-      if (start === null) start = ts;
-      var p = Math.min((ts - start) / duration, 1);
-      var eased = 1 - Math.pow(1 - p, 3); // easeOutCubic
-      num.textContent = Math.round(eased * target);
-      if (p < 1) requestAnimationFrame(step);
-    }
-    requestAnimationFrame(step);
+  var motionOK =
+    !window.matchMedia("(prefers-reduced-motion: reduce)").matches &&
+    "IntersectionObserver" in window;
+
+  /* ---- Scroll reveals (secondary content only) ---- */
+  if (motionOK) {
+    var revealEls = document.querySelectorAll("[data-reveal]");
+    revealEls.forEach(function (el) { el.classList.add("will-reveal"); });
+
+    var io = new IntersectionObserver(
+      function (entries) {
+        entries.forEach(function (entry) {
+          if (!entry.isIntersecting) return;
+          var el = entry.target;
+          // Stagger within a group, capped, cleared after run so hovers never lag.
+          var group = el.closest("[data-reveal-group]");
+          if (group) {
+            var siblings = Array.prototype.slice.call(
+              group.querySelectorAll("[data-reveal]")
+            );
+            var i = siblings.indexOf(el);
+            el.style.transitionDelay = Math.min(i, 5) * 80 + "ms";
+            el.addEventListener("transitionend", function clear() {
+              el.style.transitionDelay = "";
+              el.removeEventListener("transitionend", clear);
+            });
+          }
+          el.classList.add("in");
+          io.unobserve(el);
+        });
+      },
+      { rootMargin: "0px 0px -10% 0px", threshold: 0.15 }
+    );
+    revealEls.forEach(function (el) { io.observe(el); });
   }
 
-  function reveal(card) {
-    card.querySelectorAll(".match-bar-fill").forEach(function (bar) {
-      bar.style.width = (parseInt(bar.getAttribute("data-fill"), 10) || 0) + "%";
-    });
-    card.querySelectorAll(".match-score").forEach(animateScore);
+  /* ---- Specimen: bars draw, stamp lands. Once, then replayable. ---- */
+  var specimen = document.getElementById("specimen");
+  if (specimen && motionOK) {
+    specimen.classList.add("armed");
+
+    var specimenIO = new IntersectionObserver(
+      function (entries) {
+        if (entries[0].isIntersecting) {
+          specimen.classList.add("in");
+          specimenIO.disconnect();
+          var replay = document.querySelector(".replay");
+          if (replay) {
+            replay.hidden = false;
+            replay.addEventListener("click", function () {
+              specimen.classList.remove("in");
+              void specimen.offsetWidth; // restart transitions
+              specimen.classList.add("in");
+            });
+          }
+        }
+      },
+      { threshold: 0.35 }
+    );
+    specimenIO.observe(specimen);
   }
 
-  var cards = document.querySelectorAll(".match-card");
-
-  if (!("IntersectionObserver" in window)) {
-    cards.forEach(reveal); // fallback: just show them
-    return;
-  }
-
-  var io = new IntersectionObserver(function (entries) {
-    entries.forEach(function (entry) {
-      if (entry.isIntersecting) {
-        reveal(entry.target);
-        io.unobserve(entry.target);
-      }
-    });
-  }, { threshold: 0.4 });
-
-  cards.forEach(function (c) { io.observe(c); });
-})();
-
-// Reveal the header "Book a call" CTA only once the hero CTA has scrolled away,
-// so the same button never shows twice in the first viewport (esp. on mobile).
-(function () {
-  "use strict";
-
-  var header = document.querySelector(".site-header");
-  var heroCta = document.querySelector(".hero-cta");
-  if (!header || !heroCta) return;
-
-  function setVisible(show) {
-    header.classList.toggle("show-cta", show);
-  }
-
-  // Progressive enhancement: only hide-by-default when we can manage visibility.
-  header.classList.add("cta-managed");
-
-  if ("IntersectionObserver" in window) {
-    var io = new IntersectionObserver(function (entries) {
-      // Hero CTA out of view -> show header CTA; in view -> hide it.
-      setVisible(!entries[0].isIntersecting);
-    }, { threshold: 0 });
-    io.observe(heroCta);
-  } else {
-    // Fallback: reveal once the user scrolls past the hero CTA.
-    var onScroll = function () {
-      setVisible(heroCta.getBoundingClientRect().bottom < 0);
+  /* ---- Sticky mobile CTA: show after the hero CTA exits, hide at colophon ---- */
+  var bar = document.getElementById("stickyCta");
+  var heroCta = document.querySelector(".cover-cta");
+  var colophon = document.querySelector(".colophon");
+  if (bar && heroCta && colophon && "IntersectionObserver" in window) {
+    bar.hidden = false; // CSS keeps it translated off-screen until .show
+    var heroGone = false;
+    var footSeen = false;
+    var update = function () {
+      bar.classList.toggle("show", heroGone && !footSeen);
     };
-    window.addEventListener("scroll", onScroll, { passive: true });
-    onScroll();
+    new IntersectionObserver(function (entries) {
+      heroGone = !entries[0].isIntersecting;
+      update();
+    }).observe(heroCta);
+    new IntersectionObserver(function (entries) {
+      footSeen = entries[0].isIntersecting;
+      update();
+    }, { rootMargin: "0px 0px -40% 0px" }).observe(colophon);
   }
 })();

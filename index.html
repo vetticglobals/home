@@ -4,196 +4,455 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vettic Globals — The right people, vetted and matched, faster</title>
-  <meta name="description" content="Vettic Globals matches vetted talent to your roles, fast. Human expertise today, AI-powered matchmaking tomorrow. Book a 15-minute call." />
+  <meta name="description" content="Vettic Globals runs your search by hand: vetted, scored shortlists with the reasons written down. Every placement trains the explainable matching engine we're building. Book a 15-minute call." />
 
   <!-- Open Graph / link previews -->
   <meta property="og:type" content="website" />
   <meta property="og:title" content="Vettic Globals — Vetted talent, matched faster" />
-  <meta property="og:description" content="We match vetted talent to your roles. Human expertise today, AI matchmaking tomorrow. Book a 15-minute call." />
+  <meta property="og:description" content="You don't get résumés. You get reasons. Vetted shortlists scored on seven signals, by humans — training an explainable matching engine." />
   <meta property="og:url" content="https://vetticglobals.github.io/home/" />
   <meta property="og:image" content="https://vetticglobals.github.io/home/squire_logo.png" />
 
-  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%232b3650'/><text x='50' y='68' font-size='60' font-family='Arial' font-weight='bold' fill='white' text-anchor='middle'>V</text></svg>" />
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%23fbf5ec'/><text x='50' y='72' font-size='64' font-family='Georgia, serif' font-weight='bold' fill='%231f2a44' text-anchor='middle'>V</text></svg>" />
   <meta name="theme-color" content="#f99984" />
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <!-- Fraunces: subsetted axes only (opsz + wght) with WONK/SOFT pinned to 0 in CSS -->
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..640&family=Hanken+Grotesk:wght@400;500;600&family=Newsreader:ital,opsz,wght@1,6..72,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
+  <script>document.documentElement.classList.add('js');</script>
 </head>
 <body>
 
-  <!-- ===== Header ===== -->
-  <header class="site-header" id="top">
-    <div class="container nav">
-      <a class="brand" href="#top">
-        <img class="brand-logo" src="logo_globe.png" alt="Vettic Globals" width="42" height="42" />
-        <span class="brand-name">Vettic <span>Globals</span></span>
-      </a>
-      <nav class="nav-links" aria-label="Primary">
-        <a href="#how">How it works</a>
-        <a href="#product">Product</a>
-        <a href="#contact">Contact</a>
-      </nav>
-      <a class="btn btn-primary btn-sm nav-cta" href="https://calendly.com/vetticglobals/30min" target="_blank" rel="noopener">Book a call</a>
-    </div>
-  </header>
+  <a class="skip-link" href="#main">Skip to content</a>
 
-  <main>
-    <!-- ===== Hero ===== -->
-    <section class="hero">
-      <div class="container hero-inner">
-        <div class="hero-copy">
-          <p class="eyebrow">Talent matchmaking</p>
-          <h1>The right people, <span class="grad">vetted and matched</span> — <span class="accent">faster.</span></h1>
-          <p class="lead">
-            Vettic Globals finds, vets, and matches the talent your team actually needs.
-            Expert recruiters today, AI-powered matchmaking tomorrow.
-          </p>
-          <div class="hero-cta">
-            <a class="btn btn-primary" href="https://calendly.com/vetticglobals/30min" target="_blank" rel="noopener">Book a 15-min call</a>
-          </div>
-          <p class="hero-note">No commitment. A quick chat to see if we're a fit.</p>
+  <!-- ===== The desk: coral surface carrying the cover sheet ===== -->
+  <div class="desk" id="top">
+
+    <header class="masthead">
+      <div class="container masthead-row">
+        <a class="brand" href="#top">
+          <img class="brand-logo" src="logo_globe.png" alt="" width="36" height="36" />
+          <span class="brand-name">Vettic&nbsp;Globals</span>
+        </a>
+        <p class="masthead-line">A talent dossier for founders</p>
+        <nav class="masthead-nav" aria-label="Primary">
+          <a href="#deliverable">The deliverable</a>
+          <a href="#process">How it works</a>
+          <a href="#people">The people</a>
+          <a class="btn btn-pill btn-sm" href="https://calendly.com/vetticglobals/30min" target="_blank" rel="noopener">Book a call</a>
+        </nav>
+      </div>
+    </header>
+
+    <!-- ===== Cover sheet (hero) ===== -->
+    <section class="cover" aria-label="Introduction">
+      <div class="sheet">
+        <div class="sheet-meta">
+          <span>Vettic Globals — Talent matchmaking</span>
+          <span class="sheet-meta-right">Dossier · prepared for founders &amp; hiring managers</span>
         </div>
 
-        <!-- Product glimpse: AI match card -->
-        <div class="hero-visual" aria-hidden="false">
-          <div class="match-card">
-            <div class="match-card-head">
-              <span class="dot"></span> Vettic AI · Match found
+        <div class="cover-grid">
+          <div class="cover-main">
+            <h1 class="display">
+              <span class="line"><span class="line-inner">The right people,</span></span>
+              <span class="line"><span class="line-inner">vetted and matched</span></span>
+              <span class="line"><span class="line-inner">— <em class="accent">faster.</em></span></span>
+            </h1>
+            <p class="subhead cover-fade">
+              Senior recruiters run your search by hand — every candidate scored on
+              seven signals, with the reasons written down. And every placement trains
+              the explainable matching engine we're building.
+            </p>
+
+            <ul class="facts cover-fade" role="list">
+              <li><strong>3–5</strong> candidates per shortlist — never thirty</li>
+              <li><strong>7</strong> signals scored, each with its reasons</li>
+              <li><strong>5</strong> working days to first shortlist — our bar</li>
+            </ul>
+
+            <div class="cover-cta cover-fade">
+              <a class="btn btn-pill" href="https://calendly.com/vetticglobals/30min" target="_blank" rel="noopener">Book a 15-minute call <span class="arrow" aria-hidden="true">→</span></a>
+              <p class="microcopy">15 minutes · no prep · if we can't help, we'll say so.</p>
+              <a class="quiet-link" href="#deliverable">or see what you receive ↓</a>
             </div>
-            <div class="match-profile">
-              <div class="avatar">AR</div>
-              <div>
-                <div class="match-name">Ananya R.</div>
-                <div class="match-role">Senior Backend Engineer</div>
-              </div>
-              <div class="match-score" data-score="94">
-                <span class="score-num">0</span><span class="score-pct">%</span>
-              </div>
-            </div>
-            <div class="match-bar"><div class="match-bar-fill" data-fill="94"></div></div>
-            <div class="match-tags">
-              <span>Go</span><span>Distributed systems</span><span>AWS</span><span>Fintech</span>
-            </div>
-            <p class="match-summary">
-              Strong fit: 7 yrs scaling payment infra, ships fast, remote-ready.
+          </div>
+
+          <aside class="toc cover-fade" aria-label="In this dossier">
+            <h2 class="toc-title">In this dossier</h2>
+            <ol class="toc-list" role="list">
+              <li><a href="#deliverable"><span class="toc-num">01</span> The deliverable</a></li>
+              <li><a href="#process"><span class="toc-num">02</span> How a search runs</a></li>
+              <li><a href="#engine"><span class="toc-num">03</span> The engine</a></li>
+              <li><a href="#people"><span class="toc-num">04</span> The people</a></li>
+              <li><a href="#terms"><span class="toc-num">05</span> Terms</a></li>
+            </ol>
+          </aside>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <main id="main">
+
+    <!-- ===== 01 — The deliverable (specimen dossier) ===== -->
+    <section class="section section-deep" id="deliverable">
+      <div class="container">
+        <header class="section-head">
+          <span class="section-label">01 — The deliverable</span>
+          <span class="section-count">(Signals we score: 07)</span>
+        </header>
+
+        <div class="deliverable-grid">
+          <div class="deliverable-intro" data-reveal-group>
+            <h2 class="h2" data-reveal>You don't get résumés.<br />You get reasons.</h2>
+            <p data-reveal>
+              Most firms send a folder of CVs and let you do the judging. We send a
+              dossier: every candidate scored against your brief, signal by signal,
+              with a human's reasoning next to each score.<sup class="fn-mark">*</sup>
+            </p>
+            <p data-reveal>
+              This is the artifact on the right — life size. It's also the data that
+              trains our matching engine, which is why every score has to carry its reasons.
             </p>
           </div>
+
+          <!-- The specimen document -->
+          <figure class="specimen-wrap">
+            <div class="specimen" id="specimen">
+              <div class="doc-head">
+                <span>Candidate dossier — № 047</span>
+                <span>Role: Founding engineer · fintech</span>
+              </div>
+
+              <div class="doc-identity">
+                <span class="doc-avatar" aria-hidden="true">A.K.</span>
+                <div class="doc-id-text">
+                  <span class="redaction" aria-label="name withheld"></span>
+                  <span class="doc-id-caption">name withheld until intro</span>
+                  <span class="doc-id-role">Currently: senior engineer, Series&nbsp;A payments company</span>
+                </div>
+                <div class="stamp" aria-label="Vetted stamp">
+                  <span class="stamp-word">Vetted</span>
+                  <span class="stamp-ref">VTC/047</span>
+                </div>
+              </div>
+
+              <dl class="signals">
+                <div class="signal" style="--w:.95; --i:0">
+                  <div class="signal-top">
+                    <dt>Shipped 0→1 product</dt>
+                    <span class="chip chip-must">Must-have<sup class="mark">1</sup></span>
+                  </div>
+                  <dd class="signal-note">Led two launches from empty repo to paying users.<sup class="mark">2</sup></dd>
+                  <dd class="signal-bar"><span class="signal-fill"></span></dd>
+                </div>
+                <div class="signal" style="--w:.9; --i:1">
+                  <div class="signal-top">
+                    <dt>Stage fit</dt>
+                    <span class="chip chip-must">Must-have</span>
+                  </div>
+                  <dd class="signal-note">Has been employee № 5 — stayed through pre-PMF.</dd>
+                  <dd class="signal-bar"><span class="signal-fill"></span></dd>
+                </div>
+                <div class="signal" style="--w:.88; --i:2">
+                  <div class="signal-top">
+                    <dt>Comp alignment</dt>
+                    <span class="chip chip-must">Must-have</span>
+                  </div>
+                  <dd class="signal-note">Inside your stated band, confirmed directly.</dd>
+                  <dd class="signal-bar"><span class="signal-fill"></span></dd>
+                </div>
+                <div class="signal" style="--w:.85; --i:3">
+                  <div class="signal-top">
+                    <dt>Founder reference</dt>
+                    <span class="chip chip-strong">Strong signal</span>
+                  </div>
+                  <dd class="signal-note">Call completed; notes attached to this dossier.</dd>
+                  <dd class="signal-bar"><span class="signal-fill"></span></dd>
+                </div>
+                <div class="signal" style="--w:.8; --i:4">
+                  <div class="signal-top">
+                    <dt>Domain depth: payments</dt>
+                    <span class="chip chip-strong">Strong signal</span>
+                  </div>
+                  <dd class="signal-note">Three years in ledger systems at a payments startup.</dd>
+                  <dd class="signal-bar"><span class="signal-fill"></span></dd>
+                </div>
+                <div class="signal" style="--w:.7; --i:5">
+                  <div class="signal-top">
+                    <dt>Equity-comfortable</dt>
+                    <span class="chip chip-nice">Nice-to-have</span>
+                  </div>
+                  <dd class="signal-note">Asked about vesting before salary.</dd>
+                  <dd class="signal-bar"><span class="signal-fill"></span></dd>
+                </div>
+                <div class="signal" style="--w:.65; --i:6">
+                  <div class="signal-top">
+                    <dt>Timezone overlap</dt>
+                    <span class="chip chip-nice">Nice-to-have</span>
+                  </div>
+                  <dd class="signal-note">Six working hours with your team.</dd>
+                  <dd class="signal-bar"><span class="signal-fill"></span></dd>
+                </div>
+              </dl>
+
+              <div class="doc-overall">
+                <span class="doc-overall-label">Overall read</span>
+                <span class="chip chip-filled">Strong match<sup class="mark">3</sup></span>
+              </div>
+
+              <p class="doc-rationale">
+                Matched because she has already been the fourth engineer at a company
+                like yours — and stayed through the messy part.
+              </p>
+            </div>
+
+            <figcaption class="specimen-caption">
+              <span>A sample dossier — details illustrative. This is page one of what
+              lands in your inbox by day five.</span>
+              <button class="replay" type="button" hidden>Stamp it again ↺</button>
+            </figcaption>
+          </figure>
         </div>
+
+        <ol class="annotations" role="list">
+          <li><span class="mark">1</span> Weight chips mirror your brief — what you said was non-negotiable stays non-negotiable.</li>
+          <li><span class="mark">2</span> Every note is a sentence a human wrote. The engine learns from each one.</li>
+          <li><span class="mark">3</span> The overall read is a word you can challenge — not a number you take on faith.</li>
+        </ol>
+
+        <p class="footnote"><sup>*</sup>Names and employers stay redacted until both sides opt in.</p>
       </div>
     </section>
 
-    <!-- ===== Value ===== -->
-    <section class="section" id="why">
+    <!-- ===== 02 — How a search runs ===== -->
+    <section class="section" id="process">
       <div class="container">
-        <h2 class="section-title">Why Vettic</h2>
-        <div class="cards">
-          <div class="card">
-            <div class="card-icon">⚡</div>
-            <h3>Faster shortlists</h3>
-            <p>Vetted candidates in days, not weeks. We do the sourcing and screening so you don't.</p>
-          </div>
-          <div class="card">
-            <div class="card-icon">🎯</div>
-            <h3>Precision vetting</h3>
-            <p>Every profile is screened for skills, fit, and intent before it reaches you.</p>
-          </div>
-          <div class="card">
-            <div class="card-icon">🤝</div>
-            <h3>Human + AI</h3>
-            <p>Real experts run every match today, training the AI matchmaking engine we're building.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+        <header class="section-head">
+          <span class="section-label">02 — How a search runs</span>
+          <span class="section-count">(4 steps, dated)</span>
+        </header>
 
-    <!-- ===== How it works ===== -->
-    <section class="section section-alt" id="how">
-      <div class="container">
-        <h2 class="section-title">How it works</h2>
-        <ol class="steps">
-          <li>
-            <span class="step-num">1</span>
-            <h3>Share your role</h3>
-            <p>Tell us what you need: skills, seniority, budget, timeline.</p>
+        <h2 class="h2">Day zero to day fourteen.</h2>
+
+        <ol class="timeline" role="list" data-reveal-group>
+          <li class="step" data-reveal>
+            <span class="step-date">Day 0</span>
+            <h3>The brief</h3>
+            <p>One call, and we turn it into a one-page role brief you sign off on.
+               Skills, stage, band, timeline — written down so nobody re-litigates it later.</p>
+            <p class="step-deliverable"><span>You receive:</span> the role brief, one page.</p>
           </li>
-          <li>
-            <span class="step-num">2</span>
-            <h3>We source &amp; vet</h3>
-            <p>Our experts find and screen candidates against your exact requirements.</p>
+          <li class="step" data-reveal>
+            <span class="step-date">Days 1–2</span>
+            <h3>Calibration</h3>
+            <p>Three sample profiles to react to. Disagreeing now is cheap;
+               disagreeing on day ten isn't.</p>
+            <ul class="calibration" role="list">
+              <li><i>"too senior — agency-shaped"</i></li>
+              <li><i>"yes — exactly this"</i></li>
+              <li><i>"wrong stage"</i></li>
+            </ul>
+            <p class="step-deliverable"><span>You receive:</span> the calibration set, with our read on each.</p>
           </li>
-          <li>
-            <span class="step-num">3</span>
-            <h3>Get matched shortlists</h3>
-            <p>You receive a curated shortlist of strong, ready-to-talk candidates.</p>
+          <li class="step" data-reveal>
+            <span class="step-date">Days 3–5</span>
+            <h3>The shortlist</h3>
+            <p>Sourced and screened by hand, scored like dossier № 047 above.
+               Three to five people, all ready to talk.</p>
+            <p class="step-deliverable"><span>You receive:</span> the shortlist dossier.</p>
           </li>
-          <li>
-            <span class="step-num">4</span>
-            <h3>Hire with confidence</h3>
-            <p>Interview the best fits and bring on the right person, faster.</p>
+          <li class="step" data-reveal>
+            <span class="step-date">Day 14</span>
+            <h3>Signed<span class="accent-ink">.</span></h3>
+            <p>Interviews, offer support, reference notes — through to a signed offer.</p>
+            <p class="step-deliverable"><span>You receive:</span> your new hire, plus our reference notes.</p>
           </li>
         </ol>
+
+        <p class="footnote"><sup>*</sup>Day 14 is the median we design for, not a guarantee. You'll get a real date on the call.</p>
       </div>
     </section>
 
-    <!-- ===== Product glimpse ===== -->
-    <section class="section" id="product">
-      <div class="container product-grid">
-        <div class="product-copy">
-          <p class="eyebrow">In active development</p>
-          <h2 class="section-title left">What we're building: AI matchmaking</h2>
-          <p class="lead">
-            Vettic AI learns from every match our team makes to score candidate-role fit
-            instantly, surfacing the best people, ranked, with the reasoning behind each match.
-          </p>
-          <ul class="feature-list">
-            <li>Instant fit scores from skills, experience, and intent</li>
-            <li>Explainable matches: see <em>why</em> someone fits</li>
-            <li>Gets smarter with every placement we make</li>
-          </ul>
-          <p class="hero-note">Powered by every match we make today.</p>
+    <!-- ===== Mid-page ask ===== -->
+    <section class="band" aria-label="Book a call">
+      <div class="container band-inner">
+        <h2 class="band-title">Start your Day&nbsp;0.</h2>
+        <div class="band-cta">
+          <a class="btn btn-pill" href="https://calendly.com/vetticglobals/30min" target="_blank" rel="noopener">Book a 15-minute call <span class="arrow" aria-hidden="true">→</span></a>
+          <p class="microcopy">If we're not the right fit, we'll say so on the call — and point you to who is.</p>
         </div>
-        <div class="product-visual">
-          <div class="match-card big">
-            <div class="match-card-head"><span class="dot"></span> Vettic AI · Ranked matches</div>
-            <div class="mini-row"><span class="mini-name">Ananya R.</span><span class="mini-score">94%</span></div>
-            <div class="match-bar"><div class="match-bar-fill" data-fill="94"></div></div>
-            <div class="mini-row"><span class="mini-name">Daniel K.</span><span class="mini-score">88%</span></div>
-            <div class="match-bar"><div class="match-bar-fill" data-fill="88"></div></div>
-            <div class="mini-row"><span class="mini-name">Priya S.</span><span class="mini-score">81%</span></div>
-            <div class="match-bar"><div class="match-bar-fill" data-fill="81"></div></div>
+      </div>
+    </section>
+
+    <!-- ===== 03 — The engine ===== -->
+    <section class="section section-deep" id="engine">
+      <div class="container">
+        <header class="section-head">
+          <span class="section-label">03 — The engine</span>
+          <span class="section-count">(Fig. 1)</span>
+        </header>
+
+        <h2 class="h2">Humans make the match.<br />The machine takes notes.</h2>
+
+        <div class="engine-grid">
+          <div class="engine-copy" data-reveal-group>
+            <p class="engine-chips" data-reveal>
+              <span class="chip chip-filled">Today</span>
+              <span class="chip chip-strong">In training</span>
+            </p>
+            <p class="lede dropcap" data-reveal>
+              Most "AI recruiting" tools rank résumés on keyword overlap, then hand you
+              a confidence score with no reasoning behind it. Hiring managers don't
+              trust those numbers — and they're right not to. So we run the loop the
+              other way around: senior recruiters score every signal by hand, and every
+              completed search becomes something scraped résumés never could be —
+              a labeled outcome. We know who got hired, and whether they stuck.
+            </p>
+            <p class="pull-quote" data-reveal>
+              We're not asking you to trust an algorithm. We're asking you to hire
+              well — and let every hire teach it.
+            </p>
           </div>
+
+          <figure class="loop-fig" data-reveal>
+            <svg class="loop-svg" viewBox="0 0 560 400" role="img" aria-labelledby="loopTitle">
+              <title id="loopTitle">The Vettic loop: brief, human vetting, placement, engine learns — repeating</title>
+              <defs>
+                <marker id="arr" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+                  <path d="M0,0 L10,5 L0,10 z" fill="#1f2a44" />
+                </marker>
+              </defs>
+              <g class="loop-card">
+                <rect x="30" y="30" width="200" height="84" rx="6" />
+                <text x="130" y="64" class="loop-num">01</text>
+                <text x="130" y="92" class="loop-label">Brief</text>
+              </g>
+              <g class="loop-card">
+                <rect x="330" y="30" width="200" height="84" rx="6" />
+                <text x="430" y="64" class="loop-num">02</text>
+                <text x="430" y="92" class="loop-label">Human vetting</text>
+              </g>
+              <g class="loop-card">
+                <rect x="330" y="286" width="200" height="84" rx="6" />
+                <text x="430" y="320" class="loop-num">03</text>
+                <text x="430" y="348" class="loop-label">Placement</text>
+              </g>
+              <g class="loop-card">
+                <rect x="30" y="286" width="200" height="84" rx="6" />
+                <text x="130" y="320" class="loop-num">04</text>
+                <text x="130" y="348" class="loop-label">Engine learns</text>
+              </g>
+              <path class="loop-path" d="M238,72 L322,72" marker-end="url(#arr)" />
+              <path class="loop-path" d="M430,122 L430,278" marker-end="url(#arr)" />
+              <path class="loop-path" d="M322,328 L238,328" marker-end="url(#arr)" />
+              <path class="loop-path" d="M130,278 L130,122" marker-end="url(#arr)" />
+            </svg>
+            <figcaption class="fig-caption">Fig. 1 — Every placement makes the next shortlist sharper.</figcaption>
+          </figure>
+        </div>
+
+        <p class="footnote"><sup>*</sup>No black box: any score the engine ever shows you arrives with the same seven reasons you saw above.</p>
+      </div>
+    </section>
+
+    <!-- ===== 04 — The people ===== -->
+    <section class="section" id="people">
+      <div class="container">
+        <header class="section-head">
+          <span class="section-label">04 — The people</span>
+          <span class="section-count">(A short letter)</span>
+        </header>
+
+        <!-- FOUNDERS: add a real photo + your names here when ready.
+             A warm, natural-light photo beats anything stock. Never substitute fake faces. -->
+        <div class="letter" data-reveal>
+          <p>
+            We've been on both sides of a bad shortlist — the founder skimming thirty
+            résumés that miss the point, and the recruiter who knows the brief was
+            never really understood. Vettic exists to close that gap.
+          </p>
+          <p>
+            A search here is run by people who've spent years inside HR, working next
+            to engineers who've built large-scale systems. One half knows what strong
+            looks like in a person; the other knows how to turn that judgment into
+            software. You need both halves to make the loop real.
+          </p>
+          <p>
+            We're early, and we run every search like it's the one our name gets
+            judged on — because it is. If the first shortlist isn't worth your time,
+            you owe us nothing.
+          </p>
+          <p class="letter-signoff">— The Vettic Globals team</p>
+          <p class="letter-meta">
+            <span>Recruiters &amp; engineers</span>
+            <a class="quiet-link" href="https://www.linkedin.com/company/vetticglobals/" target="_blank" rel="noopener">Find us on LinkedIn ↗</a>
+          </p>
         </div>
       </div>
     </section>
 
-    <!-- ===== Contact ===== -->
-    <section class="section section-cta" id="contact">
-      <div class="container contact-inner">
-        <h2 class="section-title">Let's find your next hire</h2>
-        <p class="lead center">Book a quick call or reach us directly. We'll get right back to you.</p>
-        <div class="contact-actions">
-          <a class="btn btn-primary" href="https://calendly.com/vetticglobals/30min" target="_blank" rel="noopener">📅 Book a 15-min call</a>
-          <a class="btn btn-ghost" href="mailto:vetticglobals@gmail.com">✉️ vetticglobals@gmail.com</a>
-        </div>
-        <div class="contact-secondary">
-          <a class="chip" href="tel:+919532808031"><span class="chip-ico">📞</span> +91 95328 08031</a>
-          <a class="chip" href="tel:+918875226534"><span class="chip-ico">📞</span> +91 88752 26534</a>
-          <a class="chip" href="https://www.linkedin.com/company/vetticglobals/" target="_blank" rel="noopener"><span class="chip-ico">in</span> LinkedIn</a>
-        </div>
+    <!-- ===== 05 — Terms ===== -->
+    <section class="section" id="terms">
+      <div class="container">
+        <header class="section-head">
+          <span class="section-label">05 — Terms</span>
+          <span class="section-count">(Plain ones)</span>
+        </header>
+
+        <dl class="terms">
+          <!-- FOUNDERS: confirm fee structure and guarantee wording before launch. -->
+          <div class="term-row">
+            <dt>The fee</dt>
+            <dd>Success-fee only: you pay when you hire, and you'll know the exact
+                number before the search starts. No retainer, nothing up front.</dd>
+          </div>
+          <div class="term-row">
+            <dt>The guarantee</dt>
+            <dd>If a placement leaves inside 90 days, we re-run the search at no charge.</dd>
+          </div>
+          <div class="term-row">
+            <dt>The call</dt>
+            <dd>Fifteen minutes. We scope the role and give you an honest read — and if
+                we're not the right fit, we'll point you to who is. It is not a pitch,
+                and there's nothing to prepare.</dd>
+          </div>
+          <div class="term-row">
+            <dt>What we never do</dt>
+            <dd>Résumé floods. Exclusivity handcuffs. Black-box scores.</dd>
+          </div>
+        </dl>
       </div>
     </section>
   </main>
 
-  <!-- ===== Footer ===== -->
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <span class="brand-name footer-brand">Vettic <span>Globals</span></span>
-      <span class="footer-copy">© 2026 Vettic Globals. All rights reserved.</span>
-      <a href="https://www.linkedin.com/company/vetticglobals/" target="_blank" rel="noopener">LinkedIn</a>
+  <!-- ===== Colophon ===== -->
+  <footer class="colophon">
+    <div class="container colophon-inner">
+      <h2 class="colophon-title">Ready when you are.</h2>
+      <div class="colophon-cta">
+        <a class="btn btn-pill" href="https://calendly.com/vetticglobals/30min" target="_blank" rel="noopener">Book a 15-minute call <span class="arrow" aria-hidden="true">→</span></a>
+        <a class="colophon-mail" href="mailto:vetticglobals@gmail.com">or write to vetticglobals@gmail.com</a>
+      </div>
+    </div>
+
+    <div class="wordmark" aria-hidden="true">VETTIC</div>
+
+    <div class="container colophon-foot">
+      <span>Set in Fraunces &amp; Hanken Grotesk · No trackers, no cookies</span>
+      <span><a href="tel:+919532808031">+91 95328 08031</a> · <a href="tel:+918875226534">+91 88752 26534</a></span>
+      <span><a href="https://www.linkedin.com/company/vetticglobals/" target="_blank" rel="noopener">LinkedIn ↗</a> · © 2026 Vettic Globals</span>
     </div>
   </footer>
 
-  <script src="main.js"></script>
+  <!-- Mobile sticky ask: appears after the hero CTA leaves, hides at the colophon -->
+  <div class="sticky-cta" id="stickyCta" hidden>
+    <a class="btn btn-pill" href="https://calendly.com/vetticglobals/30min" target="_blank" rel="noopener">Book a 15-minute call <span class="arrow" aria-hidden="true">→</span></a>
+  </div>
+
+  <script src="main.js" defer></script>
 </body>
 </html>
