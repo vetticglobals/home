@@ -158,16 +158,13 @@ a { color: inherit; }
 
 /* ===== Masthead ===== */
 .masthead { padding: 16px 0; }
-.masthead-row { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; gap: 24px; }
-.masthead-nav { justify-self: end; }
+.masthead-row {
+  position: relative;
+  display: flex; align-items: center; justify-content: space-between; gap: 24px;
+}
 .brand { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; }
 .brand-logo { width: 36px; height: 36px; border-radius: 50%; display: block; }
 .brand-name { font-weight: 600; font-size: 17px; letter-spacing: -0.01em; }
-.masthead-line {
-  text-align: center;
-  font-size: 12px; text-transform: uppercase; letter-spacing: 0.08em;
-  color: var(--ink-80);
-}
 .masthead-nav { display: flex; align-items: center; gap: 26px; }
 .masthead-nav a:not(.btn) {
   font-size: 15px; font-weight: 500; text-decoration: none;
@@ -655,12 +652,11 @@ a { color: inherit; }
   .toc { border-top: 1px solid var(--hairline-strong); padding-top: 14px; }
   .deliverable-grid, .engine-grid { grid-template-columns: 1fr; }
   .timeline { grid-template-columns: 1fr 1fr; row-gap: var(--space-m); }
-  .masthead-line { display: none; }
 }
 
 @media (max-width: 720px) {
   .masthead-nav a:not(.btn) { display: none; }
-  .masthead-row { display: flex; gap: 12px; justify-content: space-between; }
+  .masthead-row { gap: 12px; }
   .loop-label { font-size: 24px; }
   .loop-num { font-size: 17px; }
   .wordmark { font-size: 30vw; }
