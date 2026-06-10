@@ -43,3 +43,35 @@
 
   cards.forEach(function (c) { io.observe(c); });
 })();
+
+// Reveal the header "Book a call" CTA only once the hero CTA has scrolled away,
+// so the same button never shows twice in the first viewport (esp. on mobile).
+(function () {
+  "use strict";
+
+  var header = document.querySelector(".site-header");
+  var heroCta = document.querySelector(".hero-cta");
+  if (!header || !heroCta) return;
+
+  function setVisible(show) {
+    header.classList.toggle("show-cta", show);
+  }
+
+  // Progressive enhancement: only hide-by-default when we can manage visibility.
+  header.classList.add("cta-managed");
+
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (entries) {
+      // Hero CTA out of view -> show header CTA; in view -> hide it.
+      setVisible(!entries[0].isIntersecting);
+    }, { threshold: 0 });
+    io.observe(heroCta);
+  } else {
+    // Fallback: reveal once the user scrolls past the hero CTA.
+    var onScroll = function () {
+      setVisible(heroCta.getBoundingClientRect().bottom < 0);
+    };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+  }
+})();
