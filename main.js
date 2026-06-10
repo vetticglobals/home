@@ -70,13 +70,15 @@
   /* ---- Sticky mobile CTA: show after the hero CTA exits, hide at colophon ---- */
   var bar = document.getElementById("stickyCta");
   var heroCta = document.querySelector(".cover-cta");
+  var band = document.querySelector(".band");
   var colophon = document.querySelector(".colophon");
   if (bar && heroCta && colophon && "IntersectionObserver" in window) {
     bar.hidden = false; // CSS keeps it translated off-screen until .show
     var heroGone = false;
+    var bandSeen = false;
     var footSeen = false;
     var update = function () {
-      bar.classList.toggle("show", heroGone && !footSeen);
+      bar.classList.toggle("show", heroGone && !bandSeen && !footSeen);
     };
     new IntersectionObserver(function (entries) {
       // Only count the hero CTA as "gone" once it has exited upward —
@@ -85,6 +87,13 @@
       heroGone = !e.isIntersecting && e.boundingClientRect.top < 0;
       update();
     }).observe(heroCta);
+    if (band) {
+      // never two identical CTAs on one screen: yield to the coral band
+      new IntersectionObserver(function (entries) {
+        bandSeen = entries[0].isIntersecting;
+        update();
+      }, { rootMargin: "0px 0px -25% 0px" }).observe(band);
+    }
     new IntersectionObserver(function (entries) {
       footSeen = entries[0].isIntersecting;
       update();
