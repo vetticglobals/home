@@ -79,7 +79,10 @@
       bar.classList.toggle("show", heroGone && !footSeen);
     };
     new IntersectionObserver(function (entries) {
-      heroGone = !entries[0].isIntersecting;
+      // Only count the hero CTA as "gone" once it has exited upward —
+      // on load it sits below the fold and the bar must stay hidden.
+      var e = entries[0];
+      heroGone = !e.isIntersecting && e.boundingClientRect.top < 0;
       update();
     }).observe(heroCta);
     new IntersectionObserver(function (entries) {
