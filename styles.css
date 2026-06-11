@@ -172,6 +172,13 @@ a { color: inherit; }
   transition: border-color 250ms var(--ease-out);
 }
 .masthead-nav a:not(.btn):hover { border-bottom-color: var(--ink); }
+/* compact LinkedIn monogram for small screens, full text elsewhere */
+.nav-linkedin-mark {
+  display: none;
+  width: 28px; height: 28px; place-items: center;
+  border: 1px solid var(--hairline-strong); border-radius: 7px;
+  font-size: 13px; font-weight: 600; line-height: 1;
+}
 
 /* ===== Cover sheet ===== */
 .cover { padding-top: clamp(12px, 2.5vw, 32px); }
@@ -655,8 +662,12 @@ a { color: inherit; }
 }
 
 @media (max-width: 720px) {
-  .masthead-nav a:not(.btn) { display: none; }
+  .masthead-nav a:not(.btn):not(.nav-linkedin) { display: none; }
+  .nav-linkedin { border-bottom: none; }
+  .nav-linkedin-full { display: none; }
+  .nav-linkedin-mark { display: inline-grid; }
   .masthead-row { gap: 12px; }
+  .masthead-nav { gap: 14px; }
   .loop-label { font-size: 24px; }
   .loop-num { font-size: 17px; }
   .wordmark { font-size: 30vw; }
