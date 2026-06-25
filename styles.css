@@ -148,6 +148,17 @@ a { color: inherit; }
 .btn-pill .arrow { transition: transform var(--dur-micro) var(--ease-out); }
 .btn-pill:hover .arrow { transform: translateX(4px); }
 .btn-sm { height: 42px; padding: 0 22px; font-size: 15px; }
+/* secondary action: same pill, outlined rather than filled */
+.btn-outline {
+  background: transparent; color: var(--ink);
+  padding: 0 28px; height: 52px; border-radius: 999px;
+  border: 1px solid var(--hairline-strong);
+  transition: transform var(--dur-micro) var(--ease-out), border-color var(--dur-micro) var(--ease-out), box-shadow var(--dur-micro) var(--ease-out);
+}
+.btn-outline:hover { transform: translateY(-1px); border-color: var(--ink); box-shadow: 0 4px 14px rgba(31, 42, 68, 0.12); }
+.btn-outline .arrow { transition: transform var(--dur-micro) var(--ease-out); }
+.btn-outline:hover .arrow { transform: translateX(4px); }
+.cta-pair { display: flex; flex-wrap: wrap; gap: 12px; }
 
 /* ===== The desk (coral hero surface) ===== */
 .desk {
@@ -525,6 +536,18 @@ a { color: inherit; }
 }
 .letter-meta .quiet-link { text-transform: none; letter-spacing: 0; }
 
+/* ===== For candidates ===== */
+.candidate-card {
+  display: flex; align-items: center; justify-content: space-between;
+  gap: var(--space-m); flex-wrap: wrap;
+  border: 1px solid var(--hairline);
+  border-radius: 3px;
+  padding: clamp(2rem, 4vw, 3rem);
+}
+.candidate-copy { max-width: 50ch; }
+.candidate-copy p { margin-top: 12px; color: var(--ink-80); }
+.candidate-cta { display: grid; gap: 10px; justify-items: start; }
+
 /* ===== 05 — Terms ===== */
 .term-row {
   display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 2fr);
@@ -689,7 +712,9 @@ a { color: inherit; }
   .term-row { grid-template-columns: 1fr; gap: 6px; padding: 18px 0; }
   .h2 br { display: none; } /* let text-wrap: balance control breaks on phones */
   .band-inner { flex-direction: column; align-items: flex-start; }
-  .band .btn, .colophon-cta .btn { width: 100%; }
+  .band .btn, .colophon-cta .btn, .candidate-cta .btn { width: 100%; }
+  .cta-pair { width: 100%; }
+  .candidate-card { flex-direction: column; align-items: flex-start; }
   .colophon-inner { flex-direction: column; align-items: flex-start; }
   .stamp { width: 96px; height: 54px; }
   .stamp-word { font-size: 15px; }
