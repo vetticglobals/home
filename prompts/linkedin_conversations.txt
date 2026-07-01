@@ -1,0 +1,18 @@
+hey we now want to post a first linekdin post, it should be eye catchy, technically sound to present our      
+    deep technical aspect and at the same time it should make sense to broader spectrum of users from a hr guy  
+    to ceo level person both should interested what we are doing here, it should not look like typical linked   
+    slop spam message, we have both subject matter expert ( we have people with hr experience and people who    
+    have worked at large scale companies and have deep techncal roots ).  here i have added a linkedin folder   
+    just add a new file post0.txt post1.txt so on so far so right now let's add post0.txt this is our first     
+  post 
+
+
+okey so post text is looking really good and i think we should also include a image along side the post i     
+  have added post0.png image and i i have move txt file under post0 and you also have our logo : logo_globe.png 
+  can you make a final post image by combinaing theme of post0.png (may be make slight changes to match the     
+  our hiring theame but i look the doodle ) and also include our logo in better way so that it also gets        
+  visibility                                                                                                    
+
+
+
+---------------------------------------------------------------------------------------------------------------------

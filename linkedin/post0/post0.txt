@@ -1,0 +1,25 @@
+Most "AI recruiting" tools rank resumes on keyword overlap, then hand you a confidence score with no reasoning behind it. Hiring managers don't trust those numbers, and they're right not to — the tool was never trained on whether anyone it picked actually worked out.
+
+We do it the other way around.
+
+Today the work is human. Our recruiters source, vet, and match candidates on skills, fit, and intent before a profile ever reaches you. You get vetted, ready-to-talk shortlists in days, not weeks.
+
+That human work also produces something scraped resumes never could: every placement is a labeled outcome. We know who got hired and whether they stuck. It's a slow, expensive signal — which is exactly why a keyword matcher can't fake it.
+
+That data is what trains Vettic AI. Because every score is anchored to a real result, we can show the skill, experience, and intent signals behind it, plus the past matches it learned from. A score you can read and challenge, not take on faith.
+
+Our team is people who've spent years in HR, working alongside engineers who've run large-scale systems. You need both halves to make that loop real.
+
+Have a role that's hard to fill? Send it our way.
+
+
+# ─────────────────────────────────────────────
+# ALTERNATE OPENING LINES (swap in for line 1 if you want a different hook)
+# ─────────────────────────────────────────────
+# A) Hiring managers don't trust AI shortlists, and they're right not to: the tool
+#    ranking those candidates has never seen whether a single one of its picks worked out.
+#
+# B) We started a recruiting company backwards — humans do the matching now, so the AI
+#    we're building learns from real outcomes instead of scraped resumes.
+#
+# Hashtags: intentionally none (cleaner, less spammy for a first post).

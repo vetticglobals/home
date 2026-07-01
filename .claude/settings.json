@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(python3 -c \"import PIL; print\\('PIL', PIL.__version__\\)\")",
+      "Read(//Users/rajneesh/Library/Fonts/**)",
+      "Bash(python3 -c \"from PIL import Image; im=Image.open\\('linkedin/post0/p0.png'\\); print\\(im.size, im.mode\\)\")"
+    ]
+  }
+}
