@@ -3,15 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>Vettic Labs — The right people, vetted and matched, faster</title>
-  <meta name="description" content="Vettic Labs runs your search by hand: vetted, scored shortlists with the reasons written down. Every placement trains the explainable matching engine we're building. Book an intro call." />
+  <title>Vettic Labs — Vetted Talent Matchmaking &amp; Recruiting for Startups</title>
+  <meta name="description" content="Vettic Labs is a recruiting and talent-matchmaking service for founders and hiring managers: vetted shortlists of 3–5 candidates in 5 working days, every score with written reasons. Success-fee only. Book an intro call." />
+  <link rel="canonical" href="https://vetticlabs.com/" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1" />
+  <meta name="author" content="Vettic Labs" />
 
   <!-- Open Graph / link previews -->
   <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="Vettic Labs" />
+  <meta property="og:locale" content="en_US" />
   <meta property="og:title" content="Vettic Labs — Vetted talent, matched faster" />
   <meta property="og:description" content="You don't get résumés. You get reasons. Vetted shortlists scored on seven signals, by humans who train an explainable matching engine." />
-  <meta property="og:url" content="https://vetticglobals.github.io/home/" />
-  <meta property="og:image" content="https://vetticglobals.github.io/home/squire_logo.png" />
+  <meta property="og:url" content="https://vetticlabs.com/" />
+  <meta property="og:image" content="https://vetticlabs.com/og-card.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Vettic Labs — The right people, vetted and matched, faster. Talent matchmaking for founders and hiring managers." />
+
+  <!-- Twitter / X cards -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Vettic Labs — Vetted talent, matched faster" />
+  <meta name="twitter:description" content="You don't get résumés. You get reasons. Vetted shortlists scored on seven signals, in 5 working days. Success-fee only." />
+  <meta name="twitter:image" content="https://vetticlabs.com/og-card.png" />
 
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%23fbf5ec'/><text x='50' y='72' font-size='64' font-family='Georgia, serif' font-weight='bold' fill='%231f2a44' text-anchor='middle'>V</text></svg>" />
   <meta name="theme-color" content="#f99984" />
@@ -22,6 +36,105 @@
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300..640&family=Hanken+Grotesk:wght@400;500;600&family=Newsreader:ital,opsz,wght@1,6..72,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
   <script>document.documentElement.classList.add('js');</script>
+
+  <!-- Structured data: who we are, what we sell, and the plain-terms FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://vetticlabs.com/#org",
+        "name": "Vettic Labs",
+        "url": "https://vetticlabs.com/",
+        "logo": "https://vetticlabs.com/logo_globe_144.png",
+        "image": "https://vetticlabs.com/og-card.png",
+        "description": "Vettic Labs is a talent-matchmaking and recruiting service. Senior recruiters run each search by hand and deliver vetted shortlists of 3–5 candidates, each scored on seven signals with written reasons. Every placement trains an explainable matching engine.",
+        "email": "founders@vetticlabs.com",
+        "telephone": "+91-95328-08031",
+        "slogan": "The right people, vetted and matched — faster.",
+        "sameAs": ["https://www.linkedin.com/company/vetticlabs/"],
+        "knowsAbout": ["technical recruiting", "executive search", "startup hiring", "talent matchmaking", "candidate vetting", "explainable AI matching"]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://vetticlabs.com/#website",
+        "url": "https://vetticlabs.com/",
+        "name": "Vettic Labs",
+        "publisher": { "@id": "https://vetticlabs.com/#org" },
+        "inLanguage": "en"
+      },
+      {
+        "@type": "Service",
+        "@id": "https://vetticlabs.com/#service",
+        "serviceType": "Recruiting and talent matchmaking",
+        "name": "Vetted candidate shortlists",
+        "provider": { "@id": "https://vetticlabs.com/#org" },
+        "areaServed": "Worldwide",
+        "audience": { "@type": "Audience", "audienceType": "Founders and hiring managers at startups" },
+        "description": "A hand-run search delivered as a dossier: 3–5 vetted candidates, each scored on seven signals against your role brief with a human's written reasoning next to every score. First shortlist in 5 working days; median day 14 to a signed offer. Success-fee only — a fixed percentage of first-year compensation, no retainer. If a placement leaves inside 30 days, the search re-runs at no charge.",
+        "offers": {
+          "@type": "Offer",
+          "description": "Success-fee only: a fixed percentage of first-year compensation, agreed before the search starts. No retainer, nothing up front."
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://vetticlabs.com/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "What does Vettic Labs deliver?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Not a folder of résumés — a dossier. Every candidate is scored against your role brief on seven signals (like shipped 0→1 product, stage fit, comp alignment, founder references), with a human's written reasoning next to each score. Shortlists are 3–5 candidates, never thirty."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How fast is a Vettic Labs search?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Day 0 is an intro call that becomes a signed-off one-page role brief. Days 1–2 are calibration on three sample profiles. The first shortlist lands by day 5. Day 14 is the median we design for from brief to signed offer (not a guarantee — you get a real date on the call)."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How much does Vettic Labs cost?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Success-fee only: a fixed percentage of first-year compensation, agreed before the search starts. No retainer, nothing up front. If the first shortlist isn't worth your time, you owe nothing."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What is the guarantee?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "If a placement leaves inside 30 days, Vettic Labs re-runs the search at no charge."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How is Vettic Labs different from AI recruiting tools?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Most AI recruiting tools rank résumés on keyword overlap and hand you a confidence score with no reasoning. Vettic runs the loop the other way: senior recruiters score every signal by hand, and every completed search becomes a labeled outcome that trains an explainable matching engine. Any score the engine shows arrives with the same seven written reasons."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "I'm a candidate — how do I get considered?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Add yourself to the candidate pool via the form on the site. A human reads every submission, keeps your details on file, and reaches out only when a search actually fits — vetted roles only."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 

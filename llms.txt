@@ -1,0 +1,40 @@
+# Vettic Labs
+
+> Vettic Labs is a talent-matchmaking and recruiting service for founders and hiring managers. Senior recruiters run each search by hand and deliver vetted shortlists of 3–5 candidates, each scored on seven signals against a signed-off role brief, with a human's written reasoning next to every score. Every placement trains an explainable matching engine.
+
+Site: https://vetticlabs.com/
+Contact: founders@vetticlabs.com · +91 95328 08031
+LinkedIn: https://www.linkedin.com/company/vetticlabs/
+
+## What Vettic Labs delivers
+
+- A candidate dossier, not a résumé folder: each candidate scored signal-by-signal against your brief (e.g. shipped 0→1 product, stage fit, comp alignment, founder references, domain depth, equity comfort, timezone overlap), with written reasons for every score.
+- Shortlists of 3–5 candidates, never thirty.
+- Candidate names stay redacted until both sides opt in.
+
+## How a search runs
+
+1. **Day 0 — The brief.** One intro call becomes a one-page role brief you sign off on (skills, stage, compensation band, timeline).
+2. **Days 1–2 — Calibration.** Three sample profiles to react to, so disagreement happens early and cheaply.
+3. **Days 3–5 — The shortlist.** Sourced and screened by hand; the scored dossier lands by day five.
+4. **Day 14 — Signed.** Interviews, offer support, and reference notes through to a signed offer. Day 14 is the median designed for, not a guarantee.
+
+## Terms
+
+- **Fee:** success-fee only — a fixed percentage of first-year compensation, agreed before Day 0. No retainer, nothing up front.
+- **Guarantee:** if a placement leaves inside 30 days, the search re-runs at no charge.
+- **Never:** résumé floods, exclusivity handcuffs, black-box scores.
+
+## The matching engine
+
+Most AI recruiting tools rank résumés on keyword overlap and output unexplained confidence scores. Vettic runs the loop in reverse: humans score every signal by hand today, and every completed search becomes a labeled outcome (who got hired, whether they stuck) that trains an explainable matching engine. Any score the engine shows arrives with the same seven written reasons.
+
+## For candidates
+
+Candidates can join the vetted pool via the form on the site. A human reads every submission and reaches out only when a search genuinely fits — no flood of irrelevant pings.
+
+## Actions
+
+- Book an intro call (30 min, no prep, no pitch): https://calendly.com/founders-vetticlabs/30min
+- Send role requirements in writing: https://forms.gle/ibmeyXF4czfSkxh77
+- Join the candidate pool: https://forms.gle/CUP4unifpDevvgib9
