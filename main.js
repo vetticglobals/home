@@ -332,10 +332,12 @@
   })();
 
   /* ==================================================================
-     AMBIENT MUSIC — a small generative piece, synthesized on the fly.
-     Purely background: a warm pad drifting through a four-chord cycle,
-     an airy noise bed, and sparse pentatonic notes like distant keys.
-     Off by default; only ever starts from a click on the note button.
+     AMBIENT MUSIC — a tiny generative music box, synthesized on the fly.
+     Only discrete plucked notes with natural decay: an A-minor
+     pentatonic melody that wanders stepwise with rests, each note
+     echoed once through a soft delay. No sustained oscillators, no
+     noise bed — nothing that can read as a hum. Off by default; only
+     ever starts from a click on the note button.
      ================================================================== */
   var Music = (function () {
     var btn = document.getElementById("soundToggle");
@@ -344,18 +346,11 @@
     var AC = window.AudioContext || window.webkitAudioContext;
     if (!AC) { btn.hidden = true; return; }
 
-    var ctx = null, master = null, padOsc = [], padGain = null, lp = null;
-    var noiseSrc = null, timers = [], on = false;
+    var ctx = null, master = null, bus = null, on = false;
 
-    /* Warm, unhurried: Am9 → Fmaj7 → Cmaj7 → G6, one chord ~13s */
-    var CHORDS = [
-      [110.0, 164.81, 220.0, 246.94, 329.63],
-      [87.31, 130.81, 174.61, 220.0, 329.63],
-      [130.81, 164.81, 196.0, 246.94, 392.0],
-      [98.0, 146.83, 196.0, 246.94, 329.63]
-    ];
-    var PLUCKS = [523.25, 587.33, 659.25, 783.99, 880.0]; // C pentatonic, high and soft
-    var chordIdx = 0;
+    /* A-minor pentatonic across three octaves — melody range, far above hum territory */
+    var SCALE = [220, 261.63, 293.66, 329.63, 392, 440, 523.25, 587.33, 659.25, 783.99, 880, 1046.5];
+    var step = 6; // the walker starts mid-scale
 
     function init() {
       ctx = new AC();
@@ -363,88 +358,78 @@
       master.gain.value = 0;
       master.connect(ctx.destination);
 
-      lp = ctx.createBiquadFilter();
-      lp.type = "lowpass";
-      lp.frequency.value = 420;
-      lp.Q.value = 0.6;
-      lp.connect(master);
+      /* notes go to the master dry, and once around a damped delay for space */
+      bus = ctx.createGain();
+      bus.connect(master);
+      var delay = ctx.createDelay(1.5);
+      delay.delayTime.value = 0.46;
+      var damp = ctx.createBiquadFilter();
+      damp.type = "lowpass";
+      damp.frequency.value = 1600;
+      var fb = ctx.createGain();
+      fb.gain.value = 0.34;
+      delay.connect(damp);
+      damp.connect(fb);
+      fb.connect(delay);
+      var wet = ctx.createGain();
+      wet.gain.value = 0.25;
+      bus.connect(delay);
+      delay.connect(wet);
+      wet.connect(master);
 
-      /* slow breathing on the filter */
-      var lfo = ctx.createOscillator();
-      var lfoGain = ctx.createGain();
-      lfo.frequency.value = 0.05;
-      lfoGain.gain.value = 150;
-      lfo.connect(lfoGain);
-      lfoGain.connect(lp.frequency);
-      lfo.start();
-
-      padGain = ctx.createGain();
-      padGain.gain.value = 0.05;
-      padGain.connect(lp);
-
-      var chord = CHORDS[0];
-      for (var i = 0; i < chord.length; i++) {
-        var o = ctx.createOscillator();
-        o.type = i < 2 ? "sine" : "triangle";
-        o.frequency.value = chord[i];
-        o.detune.value = (i % 2 ? 4 : -3);
-        var g = ctx.createGain();
-        g.gain.value = i < 2 ? 0.5 : 0.22;
-        o.connect(g);
-        g.connect(padGain);
-        o.start();
-        padOsc.push({ osc: o, gain: g });
-      }
-
-      /* air: looped noise through its own low filter */
-      var len = ctx.sampleRate * 2;
-      var buf = ctx.createBuffer(1, len, ctx.sampleRate);
-      var data = buf.getChannelData(0);
-      for (var n = 0; n < len; n++) data[n] = (Math.random() * 2 - 1) * 0.5;
-      noiseSrc = ctx.createBufferSource();
-      noiseSrc.buffer = buf;
-      noiseSrc.loop = true;
-      var nf = ctx.createBiquadFilter();
-      nf.type = "lowpass";
-      nf.frequency.value = 600;
-      var ng = ctx.createGain();
-      ng.gain.value = 0.012;
-      noiseSrc.connect(nf);
-      nf.connect(ng);
-      ng.connect(master);
-      noiseSrc.start();
-
-      timers.push(setInterval(nextChord, 13000));
-      timers.push(setInterval(maybePluck, 4200));
+      scheduleNext();
     }
 
-    function nextChord() {
-      if (!ctx) return;
-      chordIdx = (chordIdx + 1) % CHORDS.length;
-      var chord = CHORDS[chordIdx];
+    /* One music-box note: sine + quiet octave partial, quick attack, long decay */
+    function playNote(freq, vel) {
       var t = ctx.currentTime;
-      for (var i = 0; i < padOsc.length; i++) {
-        padOsc[i].osc.frequency.setTargetAtTime(chord[i], t, 3.5);
-      }
-    }
+      var g = ctx.createGain();
+      g.gain.setValueAtTime(0, t);
+      g.gain.linearRampToValueAtTime(vel, t + 0.006);
+      g.gain.exponentialRampToValueAtTime(0.0001, t + 2.4);
+      g.connect(bus);
 
-    function maybePluck() {
-      if (!ctx || !on || Math.random() < 0.45) return;
-      var f = PLUCKS[Math.floor(Math.random() * PLUCKS.length)];
-      var t = ctx.currentTime;
       var o = ctx.createOscillator();
       o.type = "sine";
-      o.frequency.value = f;
-      var g = ctx.createGain();
-      g.gain.setValueAtTime(0.0001, t);
-      g.gain.exponentialRampToValueAtTime(0.035, t + 0.08);
-      g.gain.exponentialRampToValueAtTime(0.0001, t + 3.2);
-      var f2 = ctx.createBiquadFilter();
-      f2.type = "lowpass";
-      f2.frequency.value = 2200;
-      o.connect(g); g.connect(f2); f2.connect(master);
-      o.start(t);
-      o.stop(t + 3.4);
+      o.frequency.value = freq;
+      o.detune.value = Math.random() * 6 - 3;
+      o.connect(g);
+
+      var h = ctx.createOscillator();
+      h.type = "sine";
+      h.frequency.value = freq * 2;
+      var hg = ctx.createGain();
+      hg.gain.value = 0.25;
+      h.connect(hg);
+      hg.connect(g);
+
+      o.start(t); h.start(t);
+      o.stop(t + 2.6); h.stop(t + 2.6);
+    }
+
+    /* The melody: mostly stepwise, sometimes a small leap, breathes with
+       rests, and drifts back toward the middle so it never runs away */
+    function tick() {
+      if (!on) return;
+      if (Math.random() < 0.24) return; // a rest — the music breathes
+      var move = Math.random();
+      if (move < 0.45) step += Math.random() < 0.5 ? -1 : 1;
+      else if (move < 0.62) step += Math.random() < 0.5 ? -2 : 2;
+      else if (move < 0.74) { /* repeat the note */ }
+      else step += step > 6 ? -1 : 1; // pull home
+      step = Math.max(0, Math.min(SCALE.length - 1, step));
+      playNote(SCALE[step], 0.04 + Math.random() * 0.03);
+      /* now and then, a fifth shimmers above */
+      if (Math.random() < 0.12 && step + 3 < SCALE.length) {
+        playNote(SCALE[step + 3], 0.022);
+      }
+    }
+
+    function scheduleNext() {
+      setTimeout(function () {
+        tick();
+        scheduleNext();
+      }, 560 + Math.random() * 380); // an uneven, human-ish pulse
     }
 
     function setBtn() {
