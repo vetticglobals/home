@@ -873,7 +873,7 @@ a { color: inherit; }
   transform: scaleX(var(--p, 0));
 }
 
-/* Masthead controls (music + day/night) */
+/* Masthead controls (day/night) */
 .ctrls { display: inline-flex; align-items: center; gap: 10px; }
 .ctrl {
   position: relative;
@@ -889,28 +889,6 @@ a { color: inherit; }
 /* theme button shows the mode you'd switch TO */
 :root:not([data-theme="light"]) .ctrl .i-moon { display: none; }
 :root[data-theme="light"] .ctrl .i-sun { display: none; }
-/* music button: quiet ring pulse while playing */
-.ctrl.playing { border-color: var(--ink); }
-.ctrl.playing::after {
-  content: ""; position: absolute; inset: -1px;
-  border: 1px solid var(--hairline-strong); border-radius: 50%;
-}
-/* one-time discovery hint next to the music note */
-.ctrl-hint {
-  position: absolute; top: calc(100% + 10px); right: 0;
-  white-space: nowrap;
-  font-size: 11px; font-weight: 600;
-  letter-spacing: 0.14em; text-transform: uppercase;
-  color: var(--ink-65);
-  background: var(--cream-deep);
-  border: 1px solid var(--hairline);
-  border-radius: 999px;
-  padding: 6px 12px;
-  opacity: 0; transform: translateY(-4px);
-  pointer-events: none;
-}
-.ctrl-hint.show { opacity: 1; transform: none; transition: opacity 600ms var(--ease-out), transform 600ms var(--ease-out); }
-
 /* Scroll cue at the foot of the night hero */
 .scroll-cue {
   position: absolute; left: 50%; bottom: 20px;
@@ -929,17 +907,12 @@ a { color: inherit; }
 .scroll-cue.gone { opacity: 0; }
 
 @media (prefers-reduced-motion: no-preference) {
-  .js .ctrl.playing::after { animation: ctrl-pulse 2.6s var(--ease-out) infinite; }
   .js .scroll-cue i::after {
     content: ""; position: absolute; inset: 0;
     background: var(--coral);
     transform: translateY(-101%);
     animation: cue-run 2.4s cubic-bezier(0.65, 0, 0.35, 1) infinite;
   }
-}
-@keyframes ctrl-pulse {
-  0% { transform: scale(1); opacity: 0.9; }
-  70%, 100% { transform: scale(1.55); opacity: 0; }
 }
 @keyframes cue-run {
   0% { transform: translateY(-101%); }
@@ -955,7 +928,6 @@ a { color: inherit; }
   .ctrls { gap: 8px; }
   .masthead-nav { gap: 12px; }
   .scroll-cue { display: none; }
-  .ctrl-hint { display: none; }
 }
 @media (max-width: 480px) {
   .nav-linkedin { display: none; } /* still linked from the colophon */
